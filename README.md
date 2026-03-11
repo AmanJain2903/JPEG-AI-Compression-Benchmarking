@@ -1,6 +1,6 @@
 # JPEG-AI · Image Compression Benchmark
 
-A comprehensive benchmarking tool comparing **Neural Compression** (CompressAI `mbt2018-mean`) against traditional **JPEG** and **WebP** codecs. Evaluates rate-distortion performance via BPP, PSNR, and MS-SSIM, and measures machine-vision accuracy degradation using **YOLOv8** object detection.
+A comprehensive benchmarking tool comparing **JPEG-AI Compression** (CompressAI `mbt2018-mean`) against traditional **JPEG** codec. Evaluates rate-distortion performance via BPP, PSNR, and MS-SSIM, and measures machine-vision accuracy degradation using **YOLOv8** object detection.
 
 ## Project Structure
 
@@ -10,6 +10,7 @@ JPEG-AI/
 ├── engine.py           # Compression codecs + MetricsEngine
 ├── vision.py           # YOLOv8 inference & visualization
 ├── requirements.txt    # Python dependencies
+├── TestImages          # COCO 2017 Dataset Validation Set Images
 └── README.md
 ```
 
@@ -54,7 +55,6 @@ The app will open at `http://localhost:8501`.
 |---|---|
 | `compress_neural()` | CompressAI `mbt2018-mean` codec (quality 1-8) |
 | `compress_jpeg()` | Standard JPEG via Pillow (quality 1-95) |
-| `compress_webp()` | WebP via Pillow (quality 1-100) |
 | `MetricsEngine` | Computes BPP, PSNR (dB), and MS-SSIM |
 
 ### `vision.py`
