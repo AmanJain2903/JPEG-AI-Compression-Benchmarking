@@ -139,7 +139,7 @@ def compress_neural(img: Image.Image, quality: int = 4) -> CompressionResult:
     reconstructed = _tensor_to_pil(x_hat)
 
     return CompressionResult(
-        codec=f"Neural (q={quality})",
+        codec=f"JPEG-AI (q={quality})",
         reconstructed=reconstructed,
         compressed_bytes=compressed_size,
         width=orig_w,

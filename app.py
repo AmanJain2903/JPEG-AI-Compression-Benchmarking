@@ -60,7 +60,7 @@ st.markdown(
 with st.sidebar:
     st.header("Codec's Settings")
 
-    st.subheader("Neural Codec (Mean-Scale Hyperprior)")
+    st.subheader("JPEG-AI (Mean-Scale Hyperprior)")
     neural_quality = st.slider(
         "Quality level",
         min_value=1,
@@ -126,7 +126,7 @@ results: dict[str, CompressionResult] = {}
 with st.spinner("Compressing with JPEG..."):
     results["jpeg"] = compress_jpeg(original, quality=jpeg_quality)
 
-with st.spinner("Compressing with JPEG-AI (Neural) — this may take a moment..."):
+with st.spinner("Compressing with JPEG-AI (Mean-Scale Hyperprior) — this may take a moment..."):
     results["neural"] = compress_neural(original, quality=neural_quality)
 
 # ---------------------------------------------------------------------------
@@ -205,16 +205,16 @@ st.header("Visual Comparison")
 
 col_left, col_right = st.columns(2)
 with col_left:
-    compare_a = st.selectbox("Left image", ["Original", "JPEG", "JPEG-AI (Neural)"], index=1, key="cmp_a")
+    compare_a = st.selectbox("Left image", ["Original", "JPEG", "JPEG-AI (Mean-Scale Hyperprior)"], index=1, key="cmp_a")
 with col_right:
-    compare_b = st.selectbox("Right image", ["Original", "JPEG", "JPEG-AI (Neural)"], index=2, key="cmp_b")
+    compare_b = st.selectbox("Right image", ["Original", "JPEG", "JPEG-AI (Mean-Scale Hyperprior)"], index=2, key="cmp_b")
 
 
 def _resolve_image(label: str) -> Image.Image:
     mapping = {
         "Original": original,
         "JPEG": results["jpeg"].reconstructed,
-        "JPEG-AI (Neural)": results["neural"].reconstructed,
+        "JPEG-AI (Mean-Scale Hyperprior)": results["neural"].reconstructed,
     }
     return mapping[label]
 
@@ -234,7 +234,7 @@ image_comparison(
 st.divider()
 st.markdown(
     "<div style='text-align:center; color:#888; font-size:0.85rem;'>"
-    "JPEG-AI Compression Benchmark · CSEN 338 · Santa Clara University"
+    "JPEG-AI VS JPEG - Image Compression Benchmark · CSEN 338 · Santa Clara University"
     "</div>",
     unsafe_allow_html=True,
 )
