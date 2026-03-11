@@ -1,0 +1,10 @@
+torch>=2.7.0,<2.8
+torchvision>=0.22.0,<0.23
+compressai==1.2.4
+numpy>=1.26,<2.0
+Pillow>=10.0.0
+streamlit>=1.30.0
+streamlit-image-comparison>=0.0.4
+ultralytics==8.2.103
+pytorch-msssim>=1.0.0
+pandas>=2.0.0
